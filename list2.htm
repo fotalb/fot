@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang=ru>
+  <head>
+  <meta charset=utf-8>
+  <title>Выбор файлов для создания *.js</title>
+   <script type="module">              // Выбор файлов для создания *.json
+     const fileInput = document.getElementById('sif1');  
+     fileInput.addEventListener('change', handleFiles, false); 
+     function handleFiles() {
+       const fileList = this.files;
+       var str1 = "\n";
+       var str2 = "";
+       for (var i = 0, numFiles = fileList.length; i < numFiles; i++) {
+         var file = fileList[i];
+         str2 = "document.write('<i>https://raw.githubusercontent.com/fotalb/fot/main/1980-ert/1980-BW02-kwrt/" + file.name + "</i><b>";
+         // str2 = str2.replace(".jpg", "");
+         // str1 += "\xa0\xa0\xa0\xa0\"" + file.name + "\"" + str2.replace("воркута ", "");
+         str1 += str2 + file.name  + "</b>');\n";
+         
+       }
+       str1 += "\xa0\xa0" + "]\n}\n";
+       document.getElementById('serv1').innerText = str1;
+     };  
+
+    </script>
+  </head>
+  <body>
+    <span id='zbzs' style="font-size: 1em;"><b style="position:relative;"> &nbsp;&nbsp; Файлы</b>
+    <p><input type="file" id='sif1' multiple></span><br>
+     <div id="blzone"></div>
+    <p id="serv1" style="font-size:90%; ">serv1</p>
+  </body>
+</html>
+  
